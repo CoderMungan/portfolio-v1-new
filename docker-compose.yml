@@ -6,11 +6,11 @@ services:
     build:
       context: ./client/
       dockerfile: Dockerfile.react
+    networks:
+      - shared-network
     ports:
-      - "3000:3000"
+      - "4173:4173"
     command: ["npx", "vite", "preview", "--host", "0.0.0.0"]
-    depends_on:
-      - django-app
 
   # Django uygulaması için servis
   django-app:
@@ -19,3 +19,7 @@ services:
       dockerfile: Dockerfile.django
     ports:
       - "8000:8000"
+    networks:
+      - shared-network
+networks:
+  shared-network:
