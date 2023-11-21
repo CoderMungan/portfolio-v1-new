@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  # React uygulaması için servis
+  react-app:
+    build:
+      context: ./client/
+      dockerfile: Dockerfile.react
+    ports:
+      - "3000:3000"
+    command: ["npx", "vite", "preview", "--host", "0.0.0.0"]
+    depends_on:
+      - django-app
+
+  # Django uygulaması için servis
+  django-app:
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile.django
+    ports:
+      - "8000:8000"

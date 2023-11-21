@@ -1,0 +1,18 @@
+# Adım 1: Node.js tabanlı bir görüntü kullan
+FROM node:18-alpine as build
+
+# Bağımlılıkları kopyala ve kur
+COPY package*.json ./
+RUN npm install
+
+#Çalışma Alanı
+WORKDIR /
+
+# Uygulama kodunu kopyala
+COPY . .
+
+# Uygulamayı derle
+RUN npm run build
+
+# Basit bir HTTP sunucusu başlat
+CMD ["npx", "vite", "preview", "--host", "0.0.0.0"]
