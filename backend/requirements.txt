@@ -14,7 +14,7 @@ colorama==0.4.6
 cryptography==41.0.3
 defusedxml==0.7.1
 Deprecated==1.2.14
-Django==4.2.5
+Django==4.2.7
 django-allauth==0.57.0
 django-cors-headers==4.3.0
 django-debug-toolbar==4.2.0
