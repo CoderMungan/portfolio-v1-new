@@ -6,7 +6,7 @@ COPY package*.json ./
 RUN npm install
 
 #Çalışma Alanı
-WORKDIR /
+WORKDIR /home/client
 
 # Uygulama kodunu kopyala
 COPY . .

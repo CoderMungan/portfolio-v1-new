@@ -1,38 +1,36 @@
 version: '3'
 
 services:
-  # React uygulaması için servis
+  # React application service
   react-app:
     build:
       context: ./client/
       dockerfile: Dockerfile.react
-    networks:
-      - shared-network
     ports:
       - "4173:4173"
+    volumes:
+      - ./client:/app
     command: ["npx", "vite", "preview", "--host", "0.0.0.0"]
 
-  # Django uygulaması için servis
+  # Django application service
   django-app:
     build:
       context: ./backend/
       dockerfile: Dockerfile.django
     ports:
       - "8000:8000"
-    networks:
-      - shared-network
     volumes:
-      - .:/home/OtelApp
-    command: python3 manage.py runserver 0.0.0.0:8000
+      - ./backend:/home/OtelApp
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
     depends_on:
       - db
+
+  # Database service
   db:
     image: postgres
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-networks:
-  shared-network:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
