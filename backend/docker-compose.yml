@@ -1,0 +1,23 @@
+version: '3.12'
+
+services:
+  # Django application service
+  django-app:
+    build: .
+    volumes:
+      - .:/home/portfoliov2
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+
+  # Database service
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres

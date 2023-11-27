@@ -7,12 +7,12 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # Çalışma dizinini ayarla
-WORKDIR /home/portfolio
+WORKDIR /home/portfoliov2
 
 # Bağımlılıkları kopyala ve kur
-COPY requirements.txt .
+COPY requirements.txt /home/portfoliov2
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Adım 2: Uygulama kodunu kopyala
 COPY . .
