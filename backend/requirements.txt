@@ -62,7 +62,7 @@ setuptools==57.5.0
 six==1.16.0
 social-auth-app-django==5.3.0
 social-auth-core==4.4.2
-sqlparse==0.3.1
+sqlparse==0.4.4
 tabulate==0.9.0
 typing_extensions==4.8.0
 tzdata==2023.3
