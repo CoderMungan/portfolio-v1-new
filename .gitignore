@@ -5,3 +5,4 @@ data/
 .DS_Store
 backend/data
 backend/.env
+backend/Uploads
