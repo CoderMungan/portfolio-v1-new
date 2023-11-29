@@ -5,6 +5,9 @@ from autoslug import AutoSlugField
 class LabelCategory(models.Model):
     name = models.CharField(("Label Name"), max_length=50)
 
+    class Meta:
+        verbose_name_plural = "Label Category"
+
     def __str__(self) -> str:
         return self.name
 
@@ -29,6 +32,20 @@ class Blog(models.Model):
 
     class Meta:
         verbose_name_plural = "Blog"
+
+    def __str__(self) -> str:
+        return self.title
+    
+
+class Article(models.Model):
+    title = models.CharField(("Article Title"), max_length=50)
+    content = models.TextField(("Article Content"))
+    createAt = models.DateTimeField(("Created at"), auto_now=True, auto_now_add=False)
+    label = models.ManyToManyField(LabelCategory, verbose_name=("Label's"))
+    slug = AutoSlugField(populate_from='title', editable=False, always_update=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = "Article"
 
     def __str__(self) -> str:
         return self.title
