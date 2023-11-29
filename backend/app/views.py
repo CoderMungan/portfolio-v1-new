@@ -38,3 +38,11 @@ def blog_main_response_get(request: HttpRequest) -> Response:
     serializer = BlogSerializer(blogs, many=True)
 
     return Response(serializer.data, status=200)
+
+@api_view(["GET"])
+def article_main_response_get(request: HttpRequest) -> Response:
+
+    articles = Article.objects.all()
+    serializer = ArticleSerializer(articles, many=True)
+
+    return Response(serializer.data, status=200)
