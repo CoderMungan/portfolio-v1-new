@@ -46,3 +46,19 @@ def article_main_response_get(request: HttpRequest) -> Response:
     serializer = ArticleSerializer(articles, many=True)
 
     return Response(serializer.data, status=200)
+
+@api_view(["GET"])
+def blog_special_theme_get(request:HttpRequest, slug:str) -> Response:
+
+    blog_special_theme = Blog.objects.filter(slug = slug).first()
+    serializers = BlogSerializer(blog_special_theme)
+
+    return Response(serializers.data, status=200)
+
+@api_view(["GET"])
+def article_special_theme_get(request:HttpRequest, slug:str) -> Response:
+
+    article_special_theme = Article.objects.filter(slug = slug).first()
+    serializers = ArticleSerializer(article_special_theme)
+
+    return Response(serializers.data, status=200)
