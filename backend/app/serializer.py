@@ -16,3 +16,13 @@ class CategorySerializer(ModelSerializer):
     class Meta:
         model = CategoryBlog
         fields = "__all__"
+
+
+class ArticleSerializer(ModelSerializer):
+
+    category = serializers.StringRelatedField()
+    label = serializers.StringRelatedField(many=True)
+    class Meta:
+        model = Article
+        fields = "__all__"
+
