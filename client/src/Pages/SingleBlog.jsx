@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 
 export default function SingleBlog() {
@@ -17,18 +18,21 @@ export default function SingleBlog() {
 
     return (
         <>
-            <div className="px-4 lg:px-0 mt-12 text-gray-700 max-w-screen-md mx-auto text-lg leading-relaxed">
-                {data && (
-                    <div key={data.id} className="px-4 lg:px-0 mt-12 text-gray-700 max-w-screen-md mx-auto text-lg leading-relaxed">
-                        <h1 className="text-center font-bold text-5xl mb-5">{data.title}</h1>
-                        <div className="flex justify-between">
-                            <p className="text-center text-sm mb-5">{data.createAt}</p>
-                            <p className="text-center text-sm mb-5">{data.category}</p>
-                        </div>
-                        <p className="pb-6">{data.content}</p>
+            <Link to="/blog">
+                <p className="max-w-screen-lg mx-auto mt-10 text-2xl">
+                    <IoMdArrowRoundBack />
+                </p>
+            </Link>
+            {data && (
+                <div key={data.id} className="px-4 lg:px-0 mt-10 max-w-screen-md mx-auto text-lg leading-relaxed">
+                    <h1 className="text-center font-bold text-5xl">{data.title}</h1>
+                    <div className="flex justify-between text-gray-600 mt-10 mb-5">
+                        <p className="text-center text-sm">{data.createAt}</p>
+                        <p className="text-center text-sm">{data.category}</p>
                     </div>
-                )}
-            </div>
+                    <p className="pb-6">{data.content}</p>
+                </div>
+            )}
         </>
     )
 }
