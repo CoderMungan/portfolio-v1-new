@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom"
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 
-export default function SingleBlog() {
+export default function SingleArticle() {
     const { slug } = useParams()
     const [data, setData] = useState([])
 
@@ -18,8 +18,8 @@ export default function SingleBlog() {
 
     return (
         <>
-            <Link to="/blog">
-                <p className="max-w-screen-lg mx-auto mt-10 text-2xl">
+            <Link to="/article">
+                <p className="max-w-screen-md mx-auto mt-10 text-2xl">
                     <IoMdArrowRoundBack />
                 </p>
             </Link>
@@ -30,7 +30,9 @@ export default function SingleBlog() {
                         <p className="text-center text-sm">{data.createAt}</p>
                         <p className="text-center text-sm">{data.category}</p>
                     </div>
-                    <p className="pb-6">{data.content}</p>
+                    <div className="max-w-screen-md">
+                        <p className="pb-6">{data.content}</p>
+                    </div>
                 </div>
             )}
         </>
