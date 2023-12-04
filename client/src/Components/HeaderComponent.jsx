@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import Avatar from '../assets/avatar.jpeg'
+import Avatar from '../assets/avatar.jpeg';
+import ResumePDF from '../assets/GuncelCV.pdf'; // Özgeçmiye PDF dosyasının yolu
 
 export default function HeaderComponent() {
     return (
@@ -34,11 +34,20 @@ export default function HeaderComponent() {
                             <div className="text-gray-600">Software Engineer</div>
                         </div>
                         <div className="mt-4 flex items-center justify-center space-x-3 text-base">
-                            <button className="font-semibol bg-gray-800 text-white rounded-3xl w-24 p-1"><Link to="/resume">Resume</Link></button>
+                            <button className="font-semibol bg-gray-800 text-white rounded-3xl w-24 p-1">
+                                <a
+                                    href={ResumePDF}
+                                    target="_blank" // Yeni pencerede açması için
+                                    rel="noopener noreferrer"
+                                    className="font-semibol bg-gray-800 text-white rounded-3xl w-24 p-1"
+                                >
+                                    Resume
+                                </a>
+                            </button>
                         </div>
                     </figcaption>
                 </figure>
             </div>
         </section>
-    )
+    );
 }
