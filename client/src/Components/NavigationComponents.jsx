@@ -1,6 +1,7 @@
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import Avatar from '../assets/avatar.jpeg'
 
 const navigation = [
     { name: 'Home', href: '/', current: true },
@@ -15,6 +16,9 @@ function classNames(...classes) {
 
 
 export default function NavigationComponents() {
+
+    const location = useLocation()
+
     return (
         <>
             <Disclosure as="nav" className="bg-gray-800">
@@ -38,8 +42,8 @@ export default function NavigationComponents() {
                                     <div className="flex flex-shrink-0 items-center">
                                         <img
                                             className="h-8 w-auto"
-                                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                                            alt="Your Company"
+                                            src={Avatar}
+                                            alt="CoderMungan"
                                         />
                                     </div>
                                     <div className="hidden sm:ml-6 sm:block">
@@ -49,7 +53,9 @@ export default function NavigationComponents() {
                                                     key={item.name}
                                                     to={item.href}
                                                     className={classNames(
-                                                        item.current ? 'bg-slate-500 dark:bg-gray-900 text-cyan-400 dark:text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                                        location.pathname === item.href
+                                                            ? 'bg-slate-500 dark:bg-gray-900 text-cyan-400 dark:text-white'
+                                                            : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                                         'rounded-md px-3 py-2 text-sm font-medium'
                                                     )}
                                                     aria-current={item.current ? 'page' : undefined}
