@@ -9,7 +9,7 @@ export default function SingleArticle() {
 
     useEffect(() => {
         const apiRequest = async () => {
-            const request = await fetch(`http://127.0.0.1:8000/article/${slug}`)
+            const request = await fetch(`http://127.0.0.1:8000/api/article/${slug}`)
             const response = await request.json()
             setData(response)
         }
