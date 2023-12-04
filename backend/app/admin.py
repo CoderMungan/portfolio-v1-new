@@ -14,8 +14,12 @@ class BlogAdmin(admin.ModelAdmin):
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ['title', 'slug']
 
+class ContactFormAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email']
+
 admin.site.register(LabelCategory)
 admin.site.register(CategoryBlog, CategoryBlogAdmin)
 admin.site.register(CategoryArticle, CategoryArticleAdmin)
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Article)
+admin.site.register(ContactForm)
