@@ -7,6 +7,7 @@ class BlogSerializer(ModelSerializer):
 
     category = serializers.StringRelatedField()
     label = serializers.StringRelatedField(many=True)
+    createAt = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", default_timezone=timezone.get_current_timezone())
     class Meta:
         model = Blog
         fields = "__all__"
