@@ -11,10 +11,16 @@ class BlogSerializer(ModelSerializer):
         model = Blog
         fields = "__all__"
 
-class CategorySerializer(ModelSerializer):
+class CategoryBlogSerializer(ModelSerializer):
 
     class Meta:
         model = CategoryBlog
+        fields = "__all__"
+
+class CategoryArticleSerializer(ModelSerializer):
+
+    class Meta:
+        model = CategoryArticle
         fields = "__all__"
 
 
@@ -25,5 +31,12 @@ class ArticleSerializer(ModelSerializer):
     createAt = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", default_timezone=timezone.get_current_timezone())
     class Meta:
         model = Article
+        fields = "__all__"
+
+
+class ContactFormSerializer(ModelSerializer):
+
+    class Meta:
+        model = ContactForm
         fields = "__all__"
 

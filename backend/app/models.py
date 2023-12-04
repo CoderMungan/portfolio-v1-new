@@ -100,3 +100,16 @@ class Article(models.Model):
     def __str__(self) -> str:
         return self.title
 # Article ORM End
+
+# Contact Form ORM Start
+class ContactForm(models.Model):
+    name = models.CharField(("Name"), max_length=120)
+    email = models.CharField(("E-Mail"), max_length=120)
+    message = models.TextField(("Message"))
+
+    class Meta:
+        verbose_name_plural = "Contact"
+
+    def __str__(self) -> str:
+        return self.name
+# Contact Form ORM End
