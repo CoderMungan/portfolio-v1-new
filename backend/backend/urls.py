@@ -31,12 +31,12 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Portfolio Api",
+        title="CoderMungan Portfolio Api",
         default_version='v1',
-        description="Portfoliocuk",
-        terms_of_service="localde",
-        contact=openapi.Contact(email="admin@gmail.com"),
-        license=openapi.License(name="Your License"),
+        description="Kullanışlı Portfolio Api",
+        terms_of_service="https://github.com/CoderMungan",
+        contact=openapi.Contact(email="codermungan@gmail.com"),
+        license=openapi.License(name="Licence", url="https://github.com/CoderMungan/portfolio-v1-new/blob/main/license"),
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
