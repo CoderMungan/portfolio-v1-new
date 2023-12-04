@@ -48,6 +48,8 @@ docker-compose up
 ```
 
 - Now you can go to [127.0.0.1:8000](127.0.0.1:8000) to see it live. 🚀
+- Admin panel [127.0.0.1:8000/admin](127.0.0.1:8000/admin)
+- You can create what u want!
 
 ### 4. Setting Up Client Side
 
