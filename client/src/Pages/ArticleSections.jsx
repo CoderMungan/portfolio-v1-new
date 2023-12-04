@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
-
 export default function ArticleSections() {
   const [posts, setPosts] = useState([])
 
@@ -16,39 +15,46 @@ export default function ArticleSections() {
   }, [])
 
   return (
-    <div className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">From the Article</h2>
-          <p className="mt-2 text-lg leading-8 text-gray-600">
-            Some Slogan's here ^^
-          </p>
-        </div>
-        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {posts.map((post) => (
-            <article key={post.id} className="flex max-w-xl flex-col items-start justify-between">
-              <div className="flex items-center gap-x-4 text-xs">
-                <time dateTime={post.createAt} className="text-gray-500">
-                  {post.createAt}
-                </time>
-                  {post.category.title}
-              </div>
-              <div className="group relative">
-                <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                  <Link to={post.slug}>
-                    <span className="absolute inset-0" />
+    <>
+      <section className="bg-white dark:bg-gray-900">
+        <div className="py-8 px-4 mx-auto max-w-screen-lg lg:py-16 lg:px-6">
+          <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
+            <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Our Article</h2>
+            <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
+          </div>
+          <div className="grid gap-8 lg:grid-cols-2">
+            {posts.map((post) => (
+              <article key={post.id} className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 h-72 overflow-hidden">
+                <div className="flex justify-between items-center mb-5 text-gray-500">
+                  <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+                    <svg className="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
+                    </svg>
+                    {post.category}
+                  </span>
+                  <span className="text-sm">{post.createAt}</span>
+                </div>
+                <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  <Link to={post.slug} className="hover:underline">
                     {post.title}
                   </Link>
-                </h3>
-                <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.content}</p>
-              </div>
-              <div className="relative mt-8 flex items-center gap-x-4">
-                <img src={post.image} alt="" className="h-10 w-10 rounded-full bg-gray-50" />
-              </div>
-            </article>
-          ))}
+                </h2>
+                <p className="mb-5 font-light text-gray-500 dark:text-gray-400 line-clamp-3">
+                  {post.content}
+                </p>
+                <div className="flex justify-between items-center">
+                  <Link to={post.slug} className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
+                    Devamını Oku
+                    <svg className="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   )
 }
