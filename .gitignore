@@ -1,7 +1,4 @@
 client/node_modules
-.env
-backend/db.sqlite3
-data/
 .DS_Store
 backend/data
 backend/.env
