@@ -1,5 +1,5 @@
 import Avatar from '../assets/avatar.jpeg';
-import ResumePDF from '../assets/GuncelCV.pdf'; // Özgeçmiye PDF dosyasının yolu
+import ResumePDF from '../assets/resume.pdf';
 
 export default function HeaderComponent() {
     return (
