@@ -7,7 +7,7 @@ export default function ArticleSections() {
 
   useEffect(() => {
     const apiRequest = async () => {
-      const request = await fetch("http://127.0.0.1:8000/article")
+      const request = await fetch("http://127.0.0.1:8000/api/article")
       const response = await request.json()
       setPosts(response)
       console.log("gelen api:", response);
