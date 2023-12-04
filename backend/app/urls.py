@@ -2,7 +2,6 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('', index, name="Home"),
     path("blog", blog_main_response_get, name="blog_main_response_get"),
     path("blog/<slug>", blog_special_theme_get, name="blog_main_response_single_get"),
     path("categoryblog", category_blog_response_get, name="category_blog_response_get"),
