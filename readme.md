@@ -1,5 +1,15 @@
 ## Getting started
 
+My personal portfolio and blog website, built with React, Tailwind CSS and Django Rest Framework.
+
+It is supposed to be used as a template for other GitHub users' portfolios.
+
+## Tech Stack
+
+- Frontend: React, TailwindCSS
+- Backend: Django, Django Rest Framework
+- Container: Docker
+
 ### 1. Cloning the project
 
 - Fork `CoderMungan/portfolio-v1-new` under your personal account.
