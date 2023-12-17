@@ -9,7 +9,7 @@ export default function SingleArticle() {
 
     useEffect(() => {
         const apiRequest = async () => {
-            const request = await fetch(`https://codermungan.pythonanywhere.com/api/article/${slug}?format=json`)
+            const request = await fetch(`https://codermungan.pythonanywhere.com/api/article/${slug}`)
             const response = await request.json()
             setData(response)
         }

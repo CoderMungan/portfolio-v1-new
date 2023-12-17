@@ -7,7 +7,7 @@ export default function BlogSections() {
 
     useEffect(() => {
         const apiRequest = async () => {
-            const request = await fetch("https://codermungan.pythonanywhere.com/api/blog?format=json")
+            const request = await fetch("https://codermungan.pythonanywhere.com/api/blog")
             const response = await request.json()
             setPosts(response)
             console.log("gelen api:", response);

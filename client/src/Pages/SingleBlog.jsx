@@ -9,7 +9,7 @@ export default function SingleBlog() {
 
     useEffect(() => {
         const apiRequest = async () => {
-            const request = await fetch(`https://codermungan.pythonanywhere.com/api/blog/${slug}?format=json`)
+            const request = await fetch(`https://codermungan.pythonanywhere.com/api/blog/${slug}`)
             const response = await request.json()
             setData(response)
         }
