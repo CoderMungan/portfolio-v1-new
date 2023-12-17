@@ -21,7 +21,7 @@ export default function ContactForm() {
     e.preventDefault();
 
     try {
-        const response = await fetch("https://codermungan.pythonanywhere.com/api/contact", {
+        const response = await fetch("https://codermungan.pythonanywhere.com/api/contact?format=json", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
