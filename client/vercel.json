@@ -1,0 +1,13 @@
+{
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/favicon.ico", "dest": "/favicon.ico" },
+    { "src": "/images/(.*)", "dest": "/images/$1" },
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/article/*", "dest": "/index.html" },
+    { "src": "/blog/*", "dest": "/index.html" },
+    { "src": "/contact-me", "dest": "/index.html" },
+    { "src": "/form-succes", "dest": "/index.html" },
+    { "src": "/.*", "status": 404, "dest": "/index.html" }
+  ]
+}
